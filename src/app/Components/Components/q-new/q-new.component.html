@@ -1,0 +1,122 @@
+<app-location-head></app-location-head>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="first">
+        <h2>Quotations <span>/new</span></h2>
+      </div>
+      <div class="second mb-3">
+        <button class="btn black-button"  routerLink="/location"> Save</button>
+        <button class="btn button-cust" routerLink="/location">{{ discard | uppercase }}</button>
+      </div>
+    </div>
+  </div>
+</div>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <table class="table table-bordered w-100">
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Azure Interior</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let i of [0, 1, 2]">
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  [formControlName]="'customerName' + i"
+                  placeholder="Enter customer name"
+                />
+              </td>
+              <td>
+                <select
+                  class="form-control"
+                  [formControlName]="'azureInterior' + i"
+                >
+                  <option *ngFor="let option of azureOptions" [value]="option">{{ option }}</option>
+                </select>
+              </td>
+              <td style="display: flex;flex-direction: row;">
+                <a href="#" (click)="openFiles(i)" style="margin-right: 5px;">
+                  <i class="bi bi-box-arrow-up-right"></i>
+                </a>
+                <p style="font-size: small;">{{ text[i] }}</p>
+              </td>
+              <td>
+                <mat-form-field appearance="fill" style="width: 100%;">
+                  <mat-label *ngIf="i==0"></mat-label>
+                  <mat-label *ngIf="i==1">Public pricelist (USD)</mat-label>
+                  <mat-label *ngIf="i==2">End of Following Month</mat-label>
+                  <mat-select [formControlName]="'select' + i">
+                    <mat-option *ngFor="let option of optionsSelect" [value]="option.value">
+                      {{ option.label }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table  w-100">
+          <thead>
+            <tr>
+              <th>Customer Name</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Unit Price</th>
+              <th>Taxes</th>
+              <th>Subtotal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <input
+                  type="text"
+                  class="form-control"
+                  [formControlName]="'customerName'"
+                  placeholder="Enter customer name"
+                />
+              </td>
+              <td>
+                <input type="text" class="form-control" [formControlName]="'description'" placeholder="Enter description">
+              </td>
+              <td>
+                <input type="number" class="form-control" [formControlName]="'quantity'" placeholder="Enter quantity">
+              </td>
+              <td>
+                <input type="number" class="form-control" [formControlName]="'unitPrice'" placeholder="Enter unit price">
+              </td>
+              <td>
+                <mat-form-field appearance="fill" style="height: 60px;">
+                  <mat-label>Taxes</mat-label>
+                  <mat-select [formControlName]="'taxes'">
+                    <mat-option value="0">0%</mat-option>
+                    <mat-option value="5">5%</mat-option>
+                    <mat-option value="10">10%</mat-option>
+                    <mat-option value="15">15%</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </td>
+              <td>
+                {{ calculateSubtotal() | currency:'USD':'symbol':'1.2-2' }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="d-flex" style="flex-direction: row; ">
+          <button type="button" class="btn button-cust me-2" >Add Product</button>
+          <button type="button" class="btn button-cust me-2">Add Section </button>
+          <button type="button" class="btn button-cust">Add Note</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

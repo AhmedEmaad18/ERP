@@ -1,0 +1,8 @@
+<ng-container *ngIf="showHeader">
+  <app-head *ngIf="currentRoute === 'data'"></app-head>
+  <app-search-pagination *ngIf="currentRoute === 'data'"></app-search-pagination>
+  <app-location-head *ngIf="currentRoute === 'location'"></app-location-head>
+  <app-search-location *ngIf="currentRoute === 'location'"></app-search-location>
+
+</ng-container>
+<router-outlet></router-outlet>

@@ -1,0 +1,52 @@
+.container {
+  margin: 0; /* Remove margin */
+
+}
+.r{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.bi {
+  font-size: 1rem;
+  margin-right: 5px;
+  margin-top: 5px;
+  size: 5px;
+}
+
+.bi:hover{
+  color: red;
+}
+
+.first{
+  display: flex;
+  flex-direction: row;
+}
+.black-button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 5px 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  width: 60px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.black-button:hover {
+  background-color:red;
+}
+.search-input {
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: 0;
+}
+.ro{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+

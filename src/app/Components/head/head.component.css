@@ -1,0 +1,27 @@
+.text-m{
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:8px;
+  font-style: normal;
+}
+
+.dropdown-item{
+  text-align: right;
+}
+.dropdown-itemup{
+  text-align: right;
+  margin-right: 1px;
+}
+.nave{
+  background-color: black;
+  color: silver;
+}
+
+
+.bi{
+  color: black;
+}
+.bi:hover{
+  color: red;
+}
+

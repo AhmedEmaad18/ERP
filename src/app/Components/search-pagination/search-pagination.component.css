@@ -1,0 +1,18 @@
+.container {
+  margin: 0;
+
+}
+.r{
+  display: flex;
+  flex-direction: row;
+}
+.bi {
+  font-size: 1rem;
+  margin-right: 5px;
+  margin-top: 5px;
+  size: 5px;
+}
+
+.bi:hover{
+  color: red;
+}
